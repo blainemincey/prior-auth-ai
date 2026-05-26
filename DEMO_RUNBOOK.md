@@ -151,8 +151,11 @@ Brief architecture frame (30 sec, per script). Then select the scenario.
 **Say (while loading):**
 > "Atlas Vector Search is finding documents by semantic similarity — not keyword match, not ICD-10 code lookup — by the meaning of the clinical situation."
 
-**Optional bonus — Hybrid retrieval via `$rankFusion`:**
-After the vector search completes, switch the **Retrieval mode** segmented control above the filters from `$vectorSearch` to `$rankFusion (hybrid)` and click **Run Hybrid Search**. The backend now runs a `$rankFusion` aggregation combining a vector sub-pipeline and a `$search` (lexical) sub-pipeline with the same hard filters applied to both. Per the script's hybrid talking point, point at the `vec #N` / `lex #M` chips on each result card — they reveal each result's rank inside each pipeline (or `—` if that pipeline didn't surface the document). Cluster requirement: MongoDB 8.1+.
+**Optional bonus — Hybrid retrieval via `$rankFusion` (Scenario B only):**
+
+> ⚠ **Run this beat on Scenario B only.** The Crohn's contrast prior (`PCL-2024-BIO-3580`) that lights up the `vec #4 / lex #1` chip pair is only wired into Scenario B (Eleanor Vasquez / infliximab). On Scenarios A and C the hybrid toggle works, but there is no rank disagreement to point at. Skip this optional beat for A and C.
+
+After the vector search completes, switch the **Retrieval mode** segmented control above the filters from `$vectorSearch` to `$rankFusion (hybrid)` and click **Run Hybrid Search**. The backend now runs a `$rankFusion` aggregation combining a vector sub-pipeline and a `$search` (lexical) sub-pipeline with the same hard filters applied to both. Point at the `vec #N` / `lex #M` chips on each result card — they reveal each result's rank inside each pipeline (or `—` if that pipeline didn't surface the document). Cluster requirement: MongoDB 8.1+.
 
 **The Scenario B prior-claims demo moment:** the third row in hybrid mode is `PCL-2024-BIO-3580` (Crohn's disease, not RA). In pure `$vectorSearch` mode this case falls to rank #4 because the Crohn's narrative is semantically distant from Eleanor Vasquez's RA notes. In hybrid mode the `vec #4 / lex #1` chip pair makes the disagreement visible — the lexical sub-pipeline found this case via shared operational tokens (`Remicade`, `biosimilar exclusion clause`, `5 mg/kg every 8 weeks`, `MN-DRUG-HCB-002`, `POL-INFLIXIMAB-2024-06`) and `$rankFusion` lifted it into the top 3. Point at that row when you say "this is the case lexical surfaced that vector smoothed over."
 

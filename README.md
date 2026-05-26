@@ -317,6 +317,39 @@ surfaced what vector smoothed over" moment for the hybrid-mode demonstration.
 
 ---
 
+## FAQ
+
+**Is this production-ready or a demo?**
+The architecture pattern is production-grade — Atlas Vector Search, hybrid `$rankFusion`,
+and Search Nodes are all generally available Atlas features. The demo runs on a real
+Atlas cluster with real Voyage AI embeddings. The data is synthetic; the plumbing is
+what you'd actually build.
+
+**How does this scale?**
+The operational cluster and vector search workloads scale independently on Atlas via
+Search Nodes — dedicated infrastructure for vector workloads provisioned alongside the
+OLTP cluster. You're not trading off operational performance for search performance.
+
+**What about HIPAA and PHI?**
+MongoDB Atlas offers HIPAA-eligible configurations. In this architecture, embeddings,
+retrieval, and AI output all stay inside the Atlas cluster — no PHI leaves the
+environment. The one boundary to design around is the embedding API call; that can be
+a private endpoint or an on-premise model depending on your compliance posture.
+
+**Can a different embedding model be substituted for Voyage?**
+Yes. Embedding dimension and model are configuration. Voyage-3 is a strong general-purpose
+model for clinical text; the architecture itself is model-agnostic. Swap the model,
+rebuild the embeddings, and the Vector Search index adapts.
+
+**Why no LLM for the rationale?**
+Deliberate choice. The rationale is assembled from retrieved policy text and prior-case
+outcomes via deterministic templates — no model call, no hallucination surface, every
+citation traceable to a real document. The retrieval layer (Voyage embeddings + Atlas
+Vector Search + `$rankFusion`) is where the AI value sits; adding a generative model
+on top would obscure the architectural point rather than reinforce it.
+
+---
+
 ## Troubleshooting
 
 **`setup.py` fails with auth error:**
