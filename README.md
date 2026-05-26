@@ -27,6 +27,8 @@ Three engineered demo scenarios:
 - **Scenario B** — Infliximab infusion (HCPCS J1745), pended for high-cost biologic / step-therapy review
 - **Scenario C** — Semaglutide (Wegovy) 2.4 mg/wk (HCPCS S0148), pended for lifestyle program documentation
 
+![Rationale and write-back — the same MongoDB document, updated in place with grounded citations to retrieved policies and prior cases](images/07-Rationale.png)
+
 ### Vector Search filter behavior
 
 Step 3 supports three user-set hard filters (enforced constraints, not hints):
