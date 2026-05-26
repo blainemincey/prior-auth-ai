@@ -5,6 +5,8 @@ the retrieval foundation for AI workloads. Operational data, Voyage AI embedding
 Vector Search retrieval, and generated AI output all anchored in one platform — fewer
 moving parts, no separate vector store to keep in sync.
 
+![Three demo scenarios — MRI prior authorization, infliximab biologic infusion, GLP-1 weight management drug](images/02-Scenarios.png)
+
 ---
 
 ## What this demo shows
