@@ -55,6 +55,8 @@
 
 **[Optional — toggle the retrieval mode to `$rankFusion (hybrid)` and re-run the search]**
 
+> **⚠️ PRESENTER NOTE — RUN THIS BEAT ON SCENARIO B ONLY.** The Crohn's contrast prior (`PCL-2024-BIO-3580`) that lights up the `vec #4 / lex #1` chip pair is only wired into Scenario B (Eleanor Vasquez / infliximab). On Scenarios A and C the hybrid toggle works, but there is no rank disagreement to point at — the talking points below will not match what's on screen. If you are running A or C, skip this optional beat.
+
 > "Pure vector search is excellent when meaning matters more than exact words. But sometimes the exact word matters — a specific drug name, a procedure code, a regulatory phrase. With `$rankFusion`, Atlas runs a vector pipeline and a lexical text pipeline in parallel, fuses the rankings, and returns one merged result list. No second search engine, no app-side rerank, no extra data layer to keep in sync. The same hard filters apply identically to both pipelines."
 
 > "Watch the cards after we re-run — each result now shows the rank it received from each input pipeline. Where vector and lexical disagree, you can see exactly which pipeline contributed the lift."
