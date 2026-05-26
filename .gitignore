@@ -18,3 +18,4 @@ frontend.log
 !.env.example
 *.pem
 *.key
+.claude/

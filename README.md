@@ -190,7 +190,7 @@ automatically. No UI clicks are required for index creation.
 ```
 
 Open **http://localhost:5173** in a browser. If running on a remote host, use its LAN IP
-instead (e.g. `http://192.168.4.225:5173`) — Vite binds to all interfaces by default.
+instead (e.g. `http://<your-host-ip>:5173`) — Vite binds to all interfaces by default.
 
 On first load you'll see a **Demo Login** gate — click **Sign in as Demo User** to enter.
 This is cosmetic (no real authentication); the session is remembered in `localStorage`
