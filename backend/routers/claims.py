@@ -135,7 +135,7 @@ def generate_and_writeback_rationale(scenario: str, body: dict):
     if not policies and not prior_claims:
         raise HTTPException(status_code=400, detail="Must supply retrieved policies and/or prior_claims.")
 
-    from services.llm import generate_rationale
+    from services.rationale import generate_rationale
 
     now = datetime.now(timezone.utc)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S UTC")
